@@ -1,65 +1,180 @@
-import Image from "next/image";
+"use client";
+
+import { useState, useRef } from "react";
+import Link from "next/link";
+import { ShieldCheck, Zap, Lock, CloudUpload, Globe, FileText, Download, ArrowRight, CheckCircle2, ChevronDown, Sparkles, Pencil } from "lucide-react";
 
 export default function Home() {
+  const fileInputRef = useRef(null);
+
+  const handleUploadClick = () => {
+    if (fileInputRef.current) {
+      fileInputRef.current.click();
+    }
+  };
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.js file.
+    <main className="max-w-7xl mx-auto w-full min-h-screen px-5 pt-12 pb-20 space-y-24 overflow-x-hidden">
+      
+      {/* 1. HERO SECTION */}
+      <section className="relative flex flex-col lg:flex-row items-center justify-between gap-16 lg:gap-24 pt-4 pb-4 lg:pt-12 lg:pb-12">
+        
+        {/* Subtle dot pattern background top right */}
+        <div className="absolute top-0 right-0 w-full lg:w-1/2 h-full opacity-[0.03] pointer-events-none" style={{ backgroundImage: "radial-gradient(#000 1.5px, transparent 1.5px)", backgroundSize: "24px 24px" }}></div>
+
+        <div className="text-center lg:text-left relative flex-1 w-full z-10 max-w-[600px] mx-auto lg:mx-0">
+          <h1 className="text-[40px] sm:text-[48px] lg:text-[54px] font-extrabold text-[#0B132B] leading-[1.1] mb-6 tracking-tight">
+            Create Your <span className="text-[#0066FF]">Tenancy Agreement</span> in Minutes
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          {/* Badges */}
+
+          <p className="text-gray-500 text-[14px] sm:text-[15px] leading-relaxed mb-8 max-w-[480px] text-center lg:text-left mx-auto lg:mx-0">
+            Create a legally compliant <strong>Dubai tenancy contract</strong> using the official <strong>DLD Unified Tenancy Contract (v1.4)</strong>. <strong>RERA-approved</strong>, <strong>Ejari-ready</strong>, and aligned with <strong>Dubai Law No. 26 of 2007</strong> for residential rental agreements in Dubai.
           </p>
+
+          <div className="w-full">
+            <Link href="/generate" className="group relative flex items-center justify-center w-full py-4 sm:py-5 text-[18px] font-bold text-white rounded-2xl bg-gradient-to-r from-[#0044FF] via-[#0066FF] to-[#0044FF] bg-[length:200%_auto] hover:bg-right transition-all duration-500 shadow-[0_8px_30px_rgba(0,102,255,0.35)] hover:shadow-[0_16px_40px_rgba(0,102,255,0.55)] hover:-translate-y-1 border border-white/10 overflow-hidden">
+              <span className="relative z-10 flex items-center tracking-wide">
+                Start Creating for FREE <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1.5 transition-transform duration-300" />
+              </span>
+            </Link>
+            <div className="flex flex-nowrap items-center justify-start gap-2 sm:gap-3 mt-6 w-full overflow-x-auto pb-2 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+              <span className="shrink-0 flex items-center gap-1.5 text-[11px] sm:text-[12px] font-bold text-gray-700 bg-gray-50 px-3 py-1.5 rounded-full border border-gray-200 whitespace-nowrap">
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#0066FF]" /> RERA Compliant
+              </span>
+              <span className="shrink-0 flex items-center gap-1.5 text-[11px] sm:text-[12px] font-bold text-gray-700 bg-gray-50 px-3 py-1.5 rounded-full border border-gray-200 whitespace-nowrap">
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#0066FF]" /> DLD Approved
+              </span>
+              <span className="shrink-0 flex items-center gap-1.5 text-[11px] sm:text-[12px] font-bold text-gray-700 bg-gray-50 px-3 py-1.5 rounded-full border border-gray-200 whitespace-nowrap">
+                <Sparkles className="w-3.5 h-3.5 text-[#0066FF]" /> AI-Powered
+              </span>
+              <span className="shrink-0 flex items-center gap-1.5 text-[11px] sm:text-[12px] font-bold text-gray-700 bg-gray-50 px-3 py-1.5 rounded-full border border-gray-200 whitespace-nowrap">
+                <FileText className="w-3.5 h-3.5 text-[#0066FF]" /> Ejari Ready
+              </span>
+              <span className="shrink-0 flex items-center gap-1.5 text-[11px] sm:text-[12px] font-bold text-gray-700 bg-gray-50 px-3 py-1.5 rounded-full border border-gray-200 whitespace-nowrap">
+                <ShieldCheck className="w-3.5 h-3.5 text-[#0066FF]" /> Encrypted
+              </span>
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        
+        <div className="flex flex-1 w-full justify-center lg:justify-end relative z-10 mt-8 lg:mt-0">
+          <div className="bg-white rounded-[2rem] p-6 sm:p-8 shadow-[0_20px_60px_rgb(0,0,0,0.06)] border border-gray-100 w-full max-w-[550px] relative">
+            <div onClick={handleUploadClick} className="cursor-pointer group/header relative inline-block">
+              <h3 className="text-[20px] font-extrabold text-[#0B132B] mb-2 tracking-tight group-hover/header:text-[#0066FF] transition-colors">
+                Upload your documents
+              </h3>
+              <p className="text-[14px] text-gray-500 mb-8 font-medium group-hover/header:text-gray-600 transition-colors">AI extracts all details automatically. Or skip and fill manually.</p>
+            </div>
+            
+            <input type="file" ref={fileInputRef} className="hidden" multiple accept=".pdf,.jpg,.jpeg,.png" />
+
+            <div className="grid grid-cols-2 gap-3 sm:gap-4">
+              {/* Card 1 */}
+              <button onClick={handleUploadClick} className="cursor-pointer group relative bg-[#F8FAFC] hover:bg-white border border-transparent hover:border-blue-100 hover:shadow-[0_12px_40px_rgba(0,102,255,0.08)] transition-all duration-300 rounded-2xl p-4 sm:p-6 flex flex-col items-center justify-center text-center gap-4 overflow-hidden hover:-translate-y-1">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#F0F5FF] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-white rounded-[14px] flex items-center justify-center shadow-[0_4px_12px_rgba(0,0,0,0.03)] group-hover:scale-110 group-hover:shadow-[0_8px_20px_rgba(0,102,255,0.12)] transition-all duration-300 relative z-10">
+                  <CloudUpload className="w-6 h-6 text-[#0066FF] group-hover:-translate-y-1 transition-transform duration-300" strokeWidth={2.5} />
+                </div>
+                <div className="relative z-10">
+                  <div className="text-[13px] sm:text-[15px] font-bold text-[#0B132B] leading-tight">Landlord ID<br/>Passport</div>
+                  <div className="text-[10px] sm:text-[11px] font-semibold text-gray-400 mt-1.5 uppercase tracking-wider">PDF / JPG / PNG</div>
+                </div>
+              </button>
+
+              {/* Card 2 */}
+              <button onClick={handleUploadClick} className="cursor-pointer group relative bg-[#F8FAFC] hover:bg-white border border-transparent hover:border-blue-100 hover:shadow-[0_12px_40px_rgba(0,102,255,0.08)] transition-all duration-300 rounded-2xl p-4 sm:p-6 flex flex-col items-center justify-center text-center gap-4 overflow-hidden hover:-translate-y-1">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#F0F5FF] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-white rounded-[14px] flex items-center justify-center shadow-[0_4px_12px_rgba(0,0,0,0.03)] group-hover:scale-110 group-hover:shadow-[0_8px_20px_rgba(0,102,255,0.12)] transition-all duration-300 relative z-10">
+                  <CloudUpload className="w-6 h-6 text-[#0066FF] group-hover:-translate-y-1 transition-transform duration-300" strokeWidth={2.5} />
+                </div>
+                <div className="relative z-10">
+                  <div className="text-[13px] sm:text-[15px] font-bold text-[#0B132B] leading-tight">Tenant ID<br/>Passport</div>
+                  <div className="text-[10px] sm:text-[11px] font-semibold text-gray-400 mt-1.5 uppercase tracking-wider">PDF / JPG / PNG</div>
+                </div>
+              </button>
+
+              {/* Card 3 */}
+              <button onClick={handleUploadClick} className="cursor-pointer group relative bg-[#F8FAFC] hover:bg-white border border-transparent hover:border-blue-100 hover:shadow-[0_12px_40px_rgba(0,102,255,0.08)] transition-all duration-300 rounded-2xl p-4 sm:p-6 flex flex-col items-center justify-center text-center gap-4 overflow-hidden hover:-translate-y-1">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#F0F5FF] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-white rounded-[14px] flex items-center justify-center shadow-[0_4px_12px_rgba(0,0,0,0.03)] group-hover:scale-110 group-hover:shadow-[0_8px_20px_rgba(0,102,255,0.12)] transition-all duration-300 relative z-10">
+                  <CloudUpload className="w-6 h-6 text-[#0066FF] group-hover:-translate-y-1 transition-transform duration-300" strokeWidth={2.5} />
+                </div>
+                <div className="relative z-10">
+                  <div className="text-[13px] sm:text-[15px] font-bold text-[#0B132B] leading-tight sm:mt-2.5">Title Deed</div>
+                  <div className="text-[10px] sm:text-[11px] font-semibold text-gray-400 mt-1.5 uppercase tracking-wider">PDF / JPG / PNG</div>
+                </div>
+              </button>
+
+              {/* Card 4 (Manual) */}
+              <Link href="/generate" className="cursor-pointer group relative bg-white border border-dashed border-gray-200 hover:border-orange-200 hover:shadow-[0_12px_40px_rgba(249,115,22,0.08)] transition-all duration-300 rounded-2xl p-4 sm:p-6 flex flex-col items-center justify-center text-center gap-4 overflow-hidden hover:-translate-y-1">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#FFF4ED] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-[#FFF4ED] rounded-[14px] flex items-center justify-center group-hover:scale-110 group-hover:shadow-[0_8px_20px_rgba(249,115,22,0.15)] transition-all duration-300 relative z-10">
+                  <Pencil className="w-5 h-5 sm:w-6 sm:h-6 text-[#F97316] group-hover:rotate-12 transition-transform duration-300" strokeWidth={2.5} />
+                </div>
+                <div className="relative z-10">
+                  <div className="text-[13px] sm:text-[15px] font-bold text-gray-800 leading-tight group-hover:text-[#F97316] transition-colors">No documents?</div>
+                  <div className="text-[13px] sm:text-[14px] font-bold text-[#0066FF] mt-1 flex items-center justify-center gap-1">
+                    Fill manually <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" />
+                  </div>
+                </div>
+              </Link>
+            </div>
+          </div>
         </div>
-      </main>
-    </div>
+      </section>
+
+      {/* HOW IT WORKS */}
+      <section className="pt-6 pb-4 px-4 scroll-mt-24 !mt-0 lg:!mt-8" id="how-it-works">
+        <h2 className="text-[28px] sm:text-[32px] font-extrabold text-[#0B132B] text-center mb-12 lg:mb-16 tracking-tight">How It Works</h2>
+        
+        <div className="relative grid grid-cols-2 md:flex md:flex-row justify-between items-start max-w-[900px] mx-auto gap-y-10 gap-x-4 md:gap-y-0 md:gap-x-0">
+          
+          {/* Connecting line (desktop only) */}
+          <div className="hidden md:block absolute top-[48px] left-[12%] right-[12%] h-[2px] -z-10">
+            <svg width="100%" height="2" className="overflow-visible">
+              <line 
+                x1="0" 
+                y1="1" 
+                x2="100%" 
+                y2="1" 
+                stroke="#E5E7EB" 
+                strokeWidth="2" 
+                strokeDasharray="8 8" 
+                className="animate-move-line" 
+              />
+            </svg>
+          </div>
+
+          {/* Steps */}
+          {[
+            { num: 1, icon: CloudUpload, title: "Upload Documents", desc: "Upload your Title Deed and IDs" },
+            { num: 2, icon: Sparkles, title: "AI Extraction", desc: "We automatically fill your details" },
+            { num: 3, icon: ShieldCheck, title: "Review Details", desc: "Verify terms and add conditions" },
+            { num: 4, icon: Download, title: "Download Contract", desc: "Get your official DLD format PDF" },
+          ].map((step) => (
+            <div key={step.num} className="group flex flex-col items-center text-center relative w-full md:w-1/4 cursor-pointer">
+              <div className="relative mb-4 sm:mb-6 transition-transform duration-500 group-hover:-translate-y-2">
+                <div className="w-20 h-20 sm:w-24 sm:h-24 bg-white rounded-full flex items-center justify-center shadow-[0_8px_30px_rgba(0,0,0,0.03)] border border-gray-50 mx-auto transition-all duration-500 group-hover:shadow-[0_20px_40px_rgba(0,102,255,0.12)] group-hover:border-blue-100 group-hover:bg-[#F8FAFC]">
+                  <step.icon className="w-8 h-8 sm:w-10 sm:h-10 text-[#3B82F6] transition-transform duration-500 group-hover:scale-110" strokeWidth={1.5} />
+                </div>
+                <div className="absolute -top-1 -left-1 w-7 h-7 sm:w-8 sm:h-8 bg-[#0066FF] rounded-full flex items-center justify-center text-white text-[12px] sm:text-[13px] font-bold shadow-md border-2 border-white transition-transform duration-500 group-hover:scale-110">
+                  {step.num}
+                </div>
+              </div>
+              <h3 className="text-[15px] sm:text-[17px] font-bold text-[#0B132B] mb-1.5 sm:mb-2 transition-colors duration-300 group-hover:text-[#0066FF]">{step.title}</h3>
+              <p className="text-[#6B7280] text-[12px] sm:text-[14px] leading-relaxed max-w-[130px] sm:max-w-[150px] mx-auto transition-colors duration-300 group-hover:text-gray-900">{step.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+
+
+
+
+
+    </main>
   );
 }
+
