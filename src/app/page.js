@@ -22,13 +22,13 @@ export default function Home() {
         {/* Subtle dot pattern background top right */}
         <div className="absolute top-0 right-0 w-full lg:w-1/2 h-full opacity-[0.03] pointer-events-none" style={{ backgroundImage: "radial-gradient(#000 1.5px, transparent 1.5px)", backgroundSize: "24px 24px" }}></div>
 
-        <div className="text-center lg:text-left relative flex-1 w-full z-10 max-w-[600px] mx-auto lg:mx-0">
-          <h1 className="text-[40px] sm:text-[48px] lg:text-[54px] font-extrabold text-[#0B132B] leading-[1.1] mb-6 tracking-tight">
-            Create Your <span className="text-[#0066FF]">Tenancy Agreement</span> in Minutes
+        <div className="text-center relative flex-1 w-full z-10 max-w-[800px] mx-auto">
+          <h1 className="text-[40px] sm:text-[48px] lg:text-[54px] font-bold text-[#0B132B] leading-[1.1] mb-6 tracking-tight">
+            Create Your <span className="text-[#0066FF]">Tenancy<br className="hidden sm:block" /> Agreement</span> in Minutes
           </h1>
           {/* Badges */}
 
-          <p className="text-gray-500 text-[14px] sm:text-[15px] leading-relaxed mb-8 max-w-[480px] text-center lg:text-left mx-auto lg:mx-0">
+          <p className="text-gray-500 text-[14px] sm:text-[15px] leading-relaxed mb-8 max-w-[600px] text-center mx-auto">
             Create a legally compliant <strong>Dubai tenancy contract</strong> using the official <strong>DLD Unified Tenancy Contract (v1.4)</strong>. <strong>RERA-approved</strong>, <strong>Ejari-ready</strong>, and aligned with <strong>Dubai Law No. 26 of 2007</strong> for residential rental agreements in Dubai.
           </p>
 
@@ -38,7 +38,7 @@ export default function Home() {
                 Start Creating for FREE <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1.5 transition-transform duration-300" />
               </span>
             </Link>
-            <div className="flex flex-nowrap items-center justify-start gap-2 sm:gap-3 mt-6 w-full overflow-x-auto pb-2 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+            <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mt-8 w-full">
               <span className="shrink-0 flex items-center gap-1.5 text-[11px] sm:text-[12px] font-bold text-gray-700 bg-gray-50 px-3 py-1.5 rounded-full border border-gray-200 whitespace-nowrap">
                 <CheckCircle2 className="w-3.5 h-3.5 text-[#0066FF]" /> RERA Compliant
               </span>
@@ -58,70 +58,7 @@ export default function Home() {
           </div>
         </div>
         
-        <div className="flex flex-1 w-full justify-center lg:justify-end relative z-10 mt-8 lg:mt-0">
-          <div className="bg-white rounded-[2rem] p-6 sm:p-8 shadow-[0_20px_60px_rgb(0,0,0,0.06)] border border-gray-100 w-full max-w-[550px] relative">
-            <div onClick={handleUploadClick} className="cursor-pointer group/header relative inline-block">
-              <h3 className="text-[20px] font-extrabold text-[#0B132B] mb-2 tracking-tight group-hover/header:text-[#0066FF] transition-colors">
-                Upload your documents
-              </h3>
-              <p className="text-[14px] text-gray-500 mb-8 font-medium group-hover/header:text-gray-600 transition-colors">AI extracts all details automatically. Or skip and fill manually.</p>
-            </div>
-            
-            <input type="file" ref={fileInputRef} className="hidden" multiple accept=".pdf,.jpg,.jpeg,.png" />
 
-            <div className="grid grid-cols-2 gap-3 sm:gap-4">
-              {/* Card 1 */}
-              <button onClick={handleUploadClick} className="cursor-pointer group relative bg-[#F8FAFC] hover:bg-white border border-transparent hover:border-blue-100 hover:shadow-[0_12px_40px_rgba(0,102,255,0.08)] transition-all duration-300 rounded-2xl p-4 sm:p-6 flex flex-col items-center justify-center text-center gap-4 overflow-hidden hover:-translate-y-1">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#F0F5FF] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-white rounded-[14px] flex items-center justify-center shadow-[0_4px_12px_rgba(0,0,0,0.03)] group-hover:scale-110 group-hover:shadow-[0_8px_20px_rgba(0,102,255,0.12)] transition-all duration-300 relative z-10">
-                  <CloudUpload className="w-6 h-6 text-[#0066FF] group-hover:-translate-y-1 transition-transform duration-300" strokeWidth={2.5} />
-                </div>
-                <div className="relative z-10">
-                  <div className="text-[13px] sm:text-[15px] font-bold text-[#0B132B] leading-tight">Landlord ID<br/>Passport</div>
-                  <div className="text-[10px] sm:text-[11px] font-semibold text-gray-400 mt-1.5 uppercase tracking-wider">PDF / JPG / PNG</div>
-                </div>
-              </button>
-
-              {/* Card 2 */}
-              <button onClick={handleUploadClick} className="cursor-pointer group relative bg-[#F8FAFC] hover:bg-white border border-transparent hover:border-blue-100 hover:shadow-[0_12px_40px_rgba(0,102,255,0.08)] transition-all duration-300 rounded-2xl p-4 sm:p-6 flex flex-col items-center justify-center text-center gap-4 overflow-hidden hover:-translate-y-1">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#F0F5FF] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-white rounded-[14px] flex items-center justify-center shadow-[0_4px_12px_rgba(0,0,0,0.03)] group-hover:scale-110 group-hover:shadow-[0_8px_20px_rgba(0,102,255,0.12)] transition-all duration-300 relative z-10">
-                  <CloudUpload className="w-6 h-6 text-[#0066FF] group-hover:-translate-y-1 transition-transform duration-300" strokeWidth={2.5} />
-                </div>
-                <div className="relative z-10">
-                  <div className="text-[13px] sm:text-[15px] font-bold text-[#0B132B] leading-tight">Tenant ID<br/>Passport</div>
-                  <div className="text-[10px] sm:text-[11px] font-semibold text-gray-400 mt-1.5 uppercase tracking-wider">PDF / JPG / PNG</div>
-                </div>
-              </button>
-
-              {/* Card 3 */}
-              <button onClick={handleUploadClick} className="cursor-pointer group relative bg-[#F8FAFC] hover:bg-white border border-transparent hover:border-blue-100 hover:shadow-[0_12px_40px_rgba(0,102,255,0.08)] transition-all duration-300 rounded-2xl p-4 sm:p-6 flex flex-col items-center justify-center text-center gap-4 overflow-hidden hover:-translate-y-1">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#F0F5FF] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-white rounded-[14px] flex items-center justify-center shadow-[0_4px_12px_rgba(0,0,0,0.03)] group-hover:scale-110 group-hover:shadow-[0_8px_20px_rgba(0,102,255,0.12)] transition-all duration-300 relative z-10">
-                  <CloudUpload className="w-6 h-6 text-[#0066FF] group-hover:-translate-y-1 transition-transform duration-300" strokeWidth={2.5} />
-                </div>
-                <div className="relative z-10">
-                  <div className="text-[13px] sm:text-[15px] font-bold text-[#0B132B] leading-tight sm:mt-2.5">Title Deed</div>
-                  <div className="text-[10px] sm:text-[11px] font-semibold text-gray-400 mt-1.5 uppercase tracking-wider">PDF / JPG / PNG</div>
-                </div>
-              </button>
-
-              {/* Card 4 (Manual) */}
-              <Link href="/generate" className="cursor-pointer group relative bg-white border border-dashed border-gray-200 hover:border-orange-200 hover:shadow-[0_12px_40px_rgba(249,115,22,0.08)] transition-all duration-300 rounded-2xl p-4 sm:p-6 flex flex-col items-center justify-center text-center gap-4 overflow-hidden hover:-translate-y-1">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#FFF4ED] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-[#FFF4ED] rounded-[14px] flex items-center justify-center group-hover:scale-110 group-hover:shadow-[0_8px_20px_rgba(249,115,22,0.15)] transition-all duration-300 relative z-10">
-                  <Pencil className="w-5 h-5 sm:w-6 sm:h-6 text-[#F97316] group-hover:rotate-12 transition-transform duration-300" strokeWidth={2.5} />
-                </div>
-                <div className="relative z-10">
-                  <div className="text-[13px] sm:text-[15px] font-bold text-gray-800 leading-tight group-hover:text-[#F97316] transition-colors">No documents?</div>
-                  <div className="text-[13px] sm:text-[14px] font-bold text-[#0066FF] mt-1 flex items-center justify-center gap-1">
-                    Fill manually <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" />
-                  </div>
-                </div>
-              </Link>
-            </div>
-          </div>
-        </div>
       </section>
 
       {/* HOW IT WORKS */}
