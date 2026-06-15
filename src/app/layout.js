@@ -13,6 +13,13 @@ const orbitron = Orbitron({
   variable: "--font-orbitron"
 });
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+};
+
 export const metadata = {
   title: "Tenancy Contract Dubai | RERA-Compliant PDF Generator",
   description: "Generate a Dubai tenancy contract online using the official DLD Unified Tenancy Contract (v1.4). RERA-approved, Ejari-ready, and compliant with Dubai rental laws. Create your lease agreement in minutes.",

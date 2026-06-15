@@ -3,6 +3,7 @@
 import { useState, useRef } from "react";
 import Link from "next/link";
 import { ShieldCheck, Zap, Lock, CloudUpload, Globe, FileText, Download, ArrowRight, CheckCircle2, ChevronDown, Sparkles, Pencil } from "lucide-react";
+import GenerateWizard from "../components/GenerateWizard";
 
 export default function Home() {
   const fileInputRef = useRef(null);
@@ -14,31 +15,35 @@ export default function Home() {
   };
 
   return (
-    <main className="max-w-7xl mx-auto w-full min-h-screen px-5 pt-12 pb-20 space-y-24 overflow-x-hidden">
-      
+    <main className="max-w-7xl mx-auto w-full min-h-screen px-5 pb-20 space-y-24 overflow-x-hidden">
+
       {/* 1. HERO SECTION */}
-      <section className="relative flex flex-col lg:flex-row items-center justify-between gap-16 lg:gap-24 pt-4 pb-4 lg:pt-12 lg:pb-12">
-        
+      <section className="relative flex flex-col lg:flex-row items-center justify-between gap-16 lg:gap-24 pb-4 lg:pb-12">
+
         {/* Subtle dot pattern background top right */}
         <div className="absolute top-0 right-0 w-full lg:w-1/2 h-full opacity-[0.03] pointer-events-none" style={{ backgroundImage: "radial-gradient(#000 1.5px, transparent 1.5px)", backgroundSize: "24px 24px" }}></div>
 
         <div className="text-center relative flex-1 w-full z-10 max-w-[800px] mx-auto">
-          <h1 className="text-[40px] sm:text-[48px] lg:text-[54px] font-bold text-[#0B132B] leading-[1.1] mb-6 tracking-tight">
+          <div className="w-full">
+            <div className="text-left w-full">
+              <GenerateWizard />
+            </div>
+          </div>
+
+          <div className="inline-flex items-center justify-center gap-1 sm:gap-1.5 px-3 sm:px-4 py-1 sm:py-1.5 mt-8 sm:mt-16 mb-4 rounded-full bg-[#E5F0FF] text-[#0066FF] border border-[#CCE0FF] text-[10px] sm:text-[13px] font-bold tracking-wide shadow-sm whitespace-nowrap">
+            <Zap className="w-3 h-3 sm:w-4 sm:h-4 fill-current" /> 100% Free <span className="hidden sm:inline">for Use </span>• No Sign Up<span className="hidden sm:inline"> Required</span>
+          </div>
+
+          <h1 className="text-[28px] sm:text-[48px] lg:text-[54px] font-bold text-[#0B132B] leading-[1.1] mb-6 tracking-tight">
             Create Your <span className="text-[#0066FF]">Tenancy<br className="hidden sm:block" /> Agreement</span> in Minutes
           </h1>
-          {/* Badges */}
 
           <p className="text-gray-500 text-[14px] sm:text-[15px] leading-relaxed mb-8 max-w-[600px] text-center mx-auto">
             Create a legally compliant <strong>Dubai tenancy contract</strong> using the official <strong>DLD Unified Tenancy Contract (v1.4)</strong>. <strong>RERA-approved</strong>, <strong>Ejari-ready</strong>, and aligned with <strong>Dubai Law No. 26 of 2007</strong> for residential rental agreements in Dubai.
           </p>
 
           <div className="w-full">
-            <Link href="/generate" className="group relative flex items-center justify-center w-full py-4 sm:py-5 text-[18px] font-bold text-white rounded-2xl bg-gradient-to-r from-[#0044FF] via-[#0066FF] to-[#0044FF] bg-[length:200%_auto] hover:bg-right transition-all duration-500 shadow-[0_8px_30px_rgba(0,102,255,0.35)] hover:shadow-[0_16px_40px_rgba(0,102,255,0.55)] hover:-translate-y-1 border border-white/10 overflow-hidden">
-              <span className="relative z-10 flex items-center tracking-wide">
-                Start Creating for FREE <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1.5 transition-transform duration-300" />
-              </span>
-            </Link>
-            <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mt-8 w-full">
+            <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mt-4 w-full">
               <span className="shrink-0 flex items-center gap-1.5 text-[11px] sm:text-[12px] font-bold text-gray-700 bg-gray-50 px-3 py-1.5 rounded-full border border-gray-200 whitespace-nowrap">
                 <CheckCircle2 className="w-3.5 h-3.5 text-[#0066FF]" /> RERA Compliant
               </span>
@@ -57,28 +62,27 @@ export default function Home() {
             </div>
           </div>
         </div>
-        
 
       </section>
 
       {/* HOW IT WORKS */}
       <section className="pt-6 pb-4 px-4 scroll-mt-24 !mt-0 lg:!mt-8" id="how-it-works">
         <h2 className="text-[28px] sm:text-[32px] font-extrabold text-[#0B132B] text-center mb-12 lg:mb-16 tracking-tight">How It Works</h2>
-        
+
         <div className="relative grid grid-cols-2 md:flex md:flex-row justify-between items-start max-w-[900px] mx-auto gap-y-10 gap-x-4 md:gap-y-0 md:gap-x-0">
-          
+
           {/* Connecting line (desktop only) */}
           <div className="hidden md:block absolute top-[48px] left-[12%] right-[12%] h-[2px] -z-10">
             <svg width="100%" height="2" className="overflow-visible">
-              <line 
-                x1="0" 
-                y1="1" 
-                x2="100%" 
-                y2="1" 
-                stroke="#E5E7EB" 
-                strokeWidth="2" 
-                strokeDasharray="8 8" 
-                className="animate-move-line" 
+              <line
+                x1="0"
+                y1="1"
+                x2="100%"
+                y2="1"
+                stroke="#E5E7EB"
+                strokeWidth="2"
+                strokeDasharray="8 8"
+                className="animate-move-line"
               />
             </svg>
           </div>
